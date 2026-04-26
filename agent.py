@@ -4,8 +4,9 @@ import random
 import logging
 import requests
 from datetime import datetime, date, timedelta, timezone
-import google.generativeai as genai
-from duckduckgo_search import DDGS
+from google import genai
+from google.genai import types
+from ddgs import DDGS
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
@@ -108,7 +109,7 @@ def fetch_trending_news():
 
 
 def generate_post_content(commits, news_snippets):
-    genai.configure(api_key=os.environ["GEMINI_API_KEY"])
+    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
     commit_text = "\n".join(f"- {c}" for c in commits) if commits else "No recent GitHub activity."
     if news_snippets:
@@ -142,11 +143,11 @@ Writing rules:
 Return ONLY valid JSON with no markdown fences:
 {{"text": "full post text here", "needs_image": {needs_image_val}, "image_query": "1-2 word search term if needs_image is true else null"}}"""
 
-    model = genai.GenerativeModel(
-        "gemini-1.5-flash",
-        generation_config=genai.GenerationConfig(response_mime_type="application/json"),
+    response = client.models.generate_content(
+        model="gemini-2.0-flash",
+        contents=prompt,
+        config=types.GenerateContentConfig(response_mime_type="application/json"),
     )
-    response = model.generate_content(prompt)
     result = json.loads(response.text)
     logger.info("Gemini: post generated, needs_image=%s", result.get("needs_image"))
     return result
