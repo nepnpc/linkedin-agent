@@ -62,9 +62,13 @@ def should_post(history):
 
 def fetch_github_events(username):
     try:
+        gh_token = os.environ.get("GITHUB_TOKEN", "")
+        headers = {"Accept": "application/vnd.github+json"}
+        if gh_token:
+            headers["Authorization"] = f"Bearer {gh_token}"
         resp = requests.get(
             f"{GITHUB_API}/users/{username}/events",
-            headers={"Accept": "application/vnd.github+json"},
+            headers=headers,
             timeout=10,
         )
         resp.raise_for_status()
@@ -109,7 +113,7 @@ def fetch_trending_news():
 
 
 def generate_post_content(commits, news_snippets):
-    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"], http_options={"api_version": "v1"})
+    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
     commit_text = "\n".join(f"- {c}" for c in commits) if commits else "No recent GitHub activity."
     if news_snippets:
@@ -144,7 +148,7 @@ Return ONLY valid JSON with no markdown fences:
 {{"text": "full post text here", "needs_image": {needs_image_val}, "image_query": "1-2 word search term if needs_image is true else null"}}"""
 
     response = client.models.generate_content(
-        model="gemini-1.5-flash",
+        model="gemini-2.0-flash-lite",
         contents=prompt,
         config=types.GenerateContentConfig(response_mime_type="application/json"),
     )
