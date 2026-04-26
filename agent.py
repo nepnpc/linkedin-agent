@@ -144,7 +144,7 @@ Return ONLY valid JSON with no markdown fences:
 {{"text": "full post text here", "needs_image": {needs_image_val}, "image_query": "1-2 word search term if needs_image is true else null"}}"""
 
     response = client.models.generate_content(
-        model="gemini-2.0-flash",
+        model="gemini-1.5-flash",
         contents=prompt,
         config=types.GenerateContentConfig(response_mime_type="application/json"),
     )
