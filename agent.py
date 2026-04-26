@@ -109,7 +109,7 @@ def fetch_trending_news():
 
 
 def generate_post_content(commits, news_snippets):
-    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"], http_options={"api_version": "v1"})
 
     commit_text = "\n".join(f"- {c}" for c in commits) if commits else "No recent GitHub activity."
     if news_snippets:
