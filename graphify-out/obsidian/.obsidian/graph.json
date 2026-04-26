@@ -1,0 +1,25 @@
+{
+  "colorGroups": [
+    {
+      "query": "tag:#community/Agent_Pipeline_Functions",
+      "color": {
+        "a": 1,
+        "rgb": 5142951
+      }
+    },
+    {
+      "query": "tag:#community/Graph_Report_Concepts",
+      "color": {
+        "a": 1,
+        "rgb": 15896107
+      }
+    },
+    {
+      "query": "tag:#community/Dependencies_and_Trending",
+      "color": {
+        "a": 1,
+        "rgb": 14767961
+      }
+    }
+  ]
+}

@@ -1,0 +1,486 @@
+{
+  "nodes": [
+    {
+      "id": "g0",
+      "type": "group",
+      "label": "Agent Pipeline Functions",
+      "x": 0,
+      "y": 0,
+      "width": 880,
+      "height": 520,
+      "color": "1"
+    },
+    {
+      "id": "n_c_users_user_documents_linkedin_agent_agent_py",
+      "type": "file",
+      "file": "graphify/obsidian/agent.py.md",
+      "x": 20,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_agent_fetch_github_events",
+      "type": "file",
+      "file": "graphify/obsidian/fetch_github_events().md",
+      "x": 220,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_agent_fetch_trending_news",
+      "type": "file",
+      "file": "graphify/obsidian/fetch_trending_news().md",
+      "x": 420,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_agent_fetch_unsplash_image",
+      "type": "file",
+      "file": "graphify/obsidian/fetch_unsplash_image().md",
+      "x": 20,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_agent_generate_post_content",
+      "type": "file",
+      "file": "graphify/obsidian/generate_post_content().md",
+      "x": 220,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_agent_load_post_history",
+      "type": "file",
+      "file": "graphify/obsidian/load_post_history().md",
+      "x": 420,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_agent_main",
+      "type": "file",
+      "file": "graphify/obsidian/main().md",
+      "x": 20,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_agent_publish_to_linkedin",
+      "type": "file",
+      "file": "graphify/obsidian/publish_to_linkedin().md",
+      "x": 220,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_agent_save_post_history",
+      "type": "file",
+      "file": "graphify/obsidian/save_post_history().md",
+      "x": 420,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_agent_should_post",
+      "type": "file",
+      "file": "graphify/obsidian/should_post().md",
+      "x": 20,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_agent_upload_image_to_linkedin",
+      "type": "file",
+      "file": "graphify/obsidian/upload_image_to_linkedin().md",
+      "x": 220,
+      "y": 320,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g1",
+      "type": "group",
+      "label": "Graph Report Concepts",
+      "x": 960,
+      "y": 0,
+      "width": 660,
+      "height": 420,
+      "color": "2"
+    },
+    {
+      "id": "n_graph_report_community_agent_pipeline",
+      "type": "file",
+      "file": "graphify/obsidian/Agent Pipeline Functions.md",
+      "x": 980,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_graph_report_fn_fetch_github_events",
+      "type": "file",
+      "file": "graphify/obsidian/fetch_github_events()_1.md",
+      "x": 1180,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_graph_report_fn_fetch_unsplash_image",
+      "type": "file",
+      "file": "graphify/obsidian/fetch_unsplash_image()_1.md",
+      "x": 1380,
+      "y": 80,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_graph_report_fn_load_post_history",
+      "type": "file",
+      "file": "graphify/obsidian/load_post_history()_1.md",
+      "x": 980,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_graph_report_fn_main",
+      "type": "file",
+      "file": "graphify/obsidian/main()_1.md",
+      "x": 1180,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_graph_report_fn_publish_to_linkedin",
+      "type": "file",
+      "file": "graphify/obsidian/publish_to_linkedin()_1.md",
+      "x": 1380,
+      "y": 160,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_requirements_requests",
+      "type": "file",
+      "file": "graphify/obsidian/requests.md",
+      "x": 980,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_graph_report_fn_save_post_history",
+      "type": "file",
+      "file": "graphify/obsidian/save_post_history()_1.md",
+      "x": 1180,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_graph_report_fn_should_post",
+      "type": "file",
+      "file": "graphify/obsidian/should_post()_1.md",
+      "x": 1380,
+      "y": 240,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "g2",
+      "type": "group",
+      "label": "Dependencies and Trending",
+      "x": 0,
+      "y": 600,
+      "width": 660,
+      "height": 400,
+      "color": "3"
+    },
+    {
+      "id": "n_requirements_linkedin_agent",
+      "type": "file",
+      "file": "graphify/obsidian/LinkedIn Agent Project.md",
+      "x": 20,
+      "y": 680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_graph_report_community_python_deps",
+      "type": "file",
+      "file": "graphify/obsidian/Python Dependencies.md",
+      "x": 220,
+      "y": 680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_requirements_duckduckgo_search",
+      "type": "file",
+      "file": "graphify/obsidian/duckduckgo-search (ddgs).md",
+      "x": 420,
+      "y": 680,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_graph_report_fn_fetch_trending_news",
+      "type": "file",
+      "file": "graphify/obsidian/fetch_trending_news()_1.md",
+      "x": 20,
+      "y": 760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_graph_report_fn_generate_post_content",
+      "type": "file",
+      "file": "graphify/obsidian/generate_post_content()_1.md",
+      "x": 220,
+      "y": 760,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "n_requirements_google_generativeai",
+      "type": "file",
+      "file": "graphify/obsidian/google-generativeai.md",
+      "x": 420,
+      "y": 760,
+      "width": 180,
+      "height": 60
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_c_users_user_documents_linkedin_agent_agent_py_agent_load_post_history",
+      "fromNode": "n_c_users_user_documents_linkedin_agent_agent_py",
+      "toNode": "n_agent_load_post_history",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_c_users_user_documents_linkedin_agent_agent_py_agent_save_post_history",
+      "fromNode": "n_c_users_user_documents_linkedin_agent_agent_py",
+      "toNode": "n_agent_save_post_history",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_c_users_user_documents_linkedin_agent_agent_py_agent_should_post",
+      "fromNode": "n_c_users_user_documents_linkedin_agent_agent_py",
+      "toNode": "n_agent_should_post",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_c_users_user_documents_linkedin_agent_agent_py_agent_fetch_github_events",
+      "fromNode": "n_c_users_user_documents_linkedin_agent_agent_py",
+      "toNode": "n_agent_fetch_github_events",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_c_users_user_documents_linkedin_agent_agent_py_agent_fetch_trending_news",
+      "fromNode": "n_c_users_user_documents_linkedin_agent_agent_py",
+      "toNode": "n_agent_fetch_trending_news",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_c_users_user_documents_linkedin_agent_agent_py_agent_generate_post_content",
+      "fromNode": "n_c_users_user_documents_linkedin_agent_agent_py",
+      "toNode": "n_agent_generate_post_content",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_c_users_user_documents_linkedin_agent_agent_py_agent_fetch_unsplash_image",
+      "fromNode": "n_c_users_user_documents_linkedin_agent_agent_py",
+      "toNode": "n_agent_fetch_unsplash_image",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_c_users_user_documents_linkedin_agent_agent_py_agent_upload_image_to_linkedin",
+      "fromNode": "n_c_users_user_documents_linkedin_agent_agent_py",
+      "toNode": "n_agent_upload_image_to_linkedin",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_c_users_user_documents_linkedin_agent_agent_py_agent_publish_to_linkedin",
+      "fromNode": "n_c_users_user_documents_linkedin_agent_agent_py",
+      "toNode": "n_agent_publish_to_linkedin",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_c_users_user_documents_linkedin_agent_agent_py_agent_main",
+      "fromNode": "n_c_users_user_documents_linkedin_agent_agent_py",
+      "toNode": "n_agent_main",
+      "label": "contains [EXTRACTED]"
+    },
+    {
+      "id": "e_agent_load_post_history_agent_main",
+      "fromNode": "n_agent_load_post_history",
+      "toNode": "n_agent_main",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_agent_save_post_history_agent_main",
+      "fromNode": "n_agent_save_post_history",
+      "toNode": "n_agent_main",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_agent_should_post_agent_main",
+      "fromNode": "n_agent_should_post",
+      "toNode": "n_agent_main",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_agent_fetch_github_events_agent_main",
+      "fromNode": "n_agent_fetch_github_events",
+      "toNode": "n_agent_main",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_agent_fetch_trending_news_agent_main",
+      "fromNode": "n_agent_fetch_trending_news",
+      "toNode": "n_agent_main",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_agent_generate_post_content_agent_main",
+      "fromNode": "n_agent_generate_post_content",
+      "toNode": "n_agent_main",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_agent_fetch_unsplash_image_agent_main",
+      "fromNode": "n_agent_fetch_unsplash_image",
+      "toNode": "n_agent_main",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_agent_upload_image_to_linkedin_agent_main",
+      "fromNode": "n_agent_upload_image_to_linkedin",
+      "toNode": "n_agent_main",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_agent_publish_to_linkedin_agent_main",
+      "fromNode": "n_agent_publish_to_linkedin",
+      "toNode": "n_agent_main",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_requirements_linkedin_agent_requirements_google_generativeai",
+      "fromNode": "n_requirements_linkedin_agent",
+      "toNode": "n_requirements_google_generativeai",
+      "label": "references [EXTRACTED]"
+    },
+    {
+      "id": "e_requirements_linkedin_agent_requirements_duckduckgo_search",
+      "fromNode": "n_requirements_linkedin_agent",
+      "toNode": "n_requirements_duckduckgo_search",
+      "label": "references [EXTRACTED]"
+    },
+    {
+      "id": "e_requirements_linkedin_agent_requirements_requests",
+      "fromNode": "n_requirements_linkedin_agent",
+      "toNode": "n_requirements_requests",
+      "label": "references [EXTRACTED]"
+    },
+    {
+      "id": "e_requirements_linkedin_agent_graph_report_community_python_deps",
+      "fromNode": "n_requirements_linkedin_agent",
+      "toNode": "n_graph_report_community_python_deps",
+      "label": "conceptually_related_to [EXTRACTED]"
+    },
+    {
+      "id": "e_graph_report_community_agent_pipeline_graph_report_fn_main",
+      "fromNode": "n_graph_report_community_agent_pipeline",
+      "toNode": "n_graph_report_fn_main",
+      "label": "conceptually_related_to [EXTRACTED]"
+    },
+    {
+      "id": "e_graph_report_fn_main_graph_report_fn_load_post_history",
+      "fromNode": "n_graph_report_fn_main",
+      "toNode": "n_graph_report_fn_load_post_history",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_graph_report_fn_main_graph_report_fn_save_post_history",
+      "fromNode": "n_graph_report_fn_main",
+      "toNode": "n_graph_report_fn_save_post_history",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_graph_report_fn_main_graph_report_fn_should_post",
+      "fromNode": "n_graph_report_fn_main",
+      "toNode": "n_graph_report_fn_should_post",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_graph_report_fn_main_graph_report_fn_fetch_github_events",
+      "fromNode": "n_graph_report_fn_main",
+      "toNode": "n_graph_report_fn_fetch_github_events",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_graph_report_fn_main_graph_report_fn_fetch_trending_news",
+      "fromNode": "n_graph_report_fn_main",
+      "toNode": "n_graph_report_fn_fetch_trending_news",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_graph_report_fn_main_graph_report_fn_generate_post_content",
+      "fromNode": "n_graph_report_fn_main",
+      "toNode": "n_graph_report_fn_generate_post_content",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_graph_report_fn_main_graph_report_fn_fetch_unsplash_image",
+      "fromNode": "n_graph_report_fn_main",
+      "toNode": "n_graph_report_fn_fetch_unsplash_image",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_graph_report_fn_main_graph_report_fn_publish_to_linkedin",
+      "fromNode": "n_graph_report_fn_main",
+      "toNode": "n_graph_report_fn_publish_to_linkedin",
+      "label": "calls [EXTRACTED]"
+    },
+    {
+      "id": "e_requirements_google_generativeai_graph_report_fn_generate_post_content",
+      "fromNode": "n_requirements_google_generativeai",
+      "toNode": "n_graph_report_fn_generate_post_content",
+      "label": "references [INFERRED]"
+    },
+    {
+      "id": "e_requirements_duckduckgo_search_graph_report_fn_fetch_trending_news",
+      "fromNode": "n_requirements_duckduckgo_search",
+      "toNode": "n_graph_report_fn_fetch_trending_news",
+      "label": "references [INFERRED]"
+    },
+    {
+      "id": "e_requirements_requests_graph_report_fn_fetch_github_events",
+      "fromNode": "n_requirements_requests",
+      "toNode": "n_graph_report_fn_fetch_github_events",
+      "label": "references [INFERRED]"
+    },
+    {
+      "id": "e_requirements_requests_graph_report_fn_fetch_unsplash_image",
+      "fromNode": "n_requirements_requests",
+      "toNode": "n_graph_report_fn_fetch_unsplash_image",
+      "label": "references [INFERRED]"
+    }
+  ]
+}
