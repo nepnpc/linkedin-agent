@@ -4,8 +4,7 @@ import random
 import logging
 import requests
 from datetime import datetime, date, timedelta, timezone
-from google import genai
-from google.genai import types
+from groq import Groq
 from ddgs import DDGS
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
@@ -113,7 +112,7 @@ def fetch_trending_news():
 
 
 def generate_post_content(commits, news_snippets):
-    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+    client = Groq(api_key=os.environ["GROQ_API_KEY"])
 
     commit_text = "\n".join(f"- {c}" for c in commits) if commits else "No recent GitHub activity."
     if news_snippets:
@@ -147,13 +146,13 @@ Writing rules:
 Return ONLY valid JSON with no markdown fences:
 {{"text": "full post text here", "needs_image": {needs_image_val}, "image_query": "1-2 word search term if needs_image is true else null"}}"""
 
-    response = client.models.generate_content(
-        model="gemini-2.0-flash-lite",
-        contents=prompt,
-        config=types.GenerateContentConfig(response_mime_type="application/json"),
+    response = client.chat.completions.create(
+        model="llama-3.3-70b-versatile",
+        messages=[{"role": "user", "content": prompt}],
+        response_format={"type": "json_object"},
     )
-    result = json.loads(response.text)
-    logger.info("Gemini: post generated, needs_image=%s", result.get("needs_image"))
+    result = json.loads(response.choices[0].message.content)
+    logger.info("Groq: post generated, needs_image=%s", result.get("needs_image"))
     return result
 
 
