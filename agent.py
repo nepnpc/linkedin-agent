@@ -16,13 +16,16 @@ UNSPLASH_API = "https://api.unsplash.com"
 GITHUB_API = "https://api.github.com"
 
 FALLBACK_TOPICS = [
-    "The future of AI agents in enterprise software development",
-    "Why agentic workflows are reshaping automation in 2025",
-    "Python's dominance in the AI/ML engineering stack",
-    "Zero-trust security in a world of AI-generated code",
-    "The hidden complexity behind simple-looking LLM prompts",
-    "How GitHub Copilot changed how I think about code review",
-    "Lessons from building my first fully autonomous AI pipeline",
+    "Just deployed my first Python script to automate something and I can't believe it worked",
+    "Trying to understand how APIs work — and honestly it's clicking now",
+    "Learning Git properly for the first time — why didn't anyone tell me about rebasing earlier",
+    "Built my first web scraper this week and the internet is wild",
+    "Started learning about AI and machine learning — where do I even begin?",
+    "Finally understood recursion after three days of banging my head",
+    "My first open source contribution got merged and I'm low-key freaking out",
+    "Why everyone keeps saying 'read the docs' — they're actually useful",
+    "Debugging for 4 hours only to find a missing comma — classic beginner moment",
+    "Just learned what an API is and now I see them everywhere",
 ]
 
 
@@ -121,10 +124,10 @@ def generate_post_content(commits, news_snippets):
         sample = random.sample(FALLBACK_TOPICS, min(3, len(FALLBACK_TOPICS)))
         news_text = "\n".join(f"- {t}" for t in sample)
 
-    needs_image_val = "true" if random.random() < 0.3 else "false"
+    needs_image_val = "true" if random.random() < 0.5 else "false"
 
-    prompt = f"""You are a Senior AI Automation Engineer with 8 years of experience.
-You build agentic systems, Python automation pipelines, and AI-powered workflows.
+    prompt = f"""You are a fresh graduate and early-career developer who just started learning programming and tech.
+You are enthusiastic, curious, and still figuring things out — not an expert.
 Write ONE LinkedIn post for today based on the context below.
 
 My recent GitHub commits (last 24h):
@@ -135,12 +138,13 @@ Trending topics in AI / Cybersecurity / Python:
 
 Writing rules:
 - 150 to 300 words total
-- Conversational yet insightful — like a smart colleague sharing a real lesson
-- Vary the opening: bold statement, personal story, surprising stat, or rhetorical question
-- Share one concrete insight, lesson, or prediction
-- End with a single thought-provoking question to drive comments
+- Sound like a genuine fresher — excited, honest about what you're learning, sometimes confused but pushing through
+- Vary the opening: a relatable struggle, a small win, a "wait this actually makes sense now" moment, or a genuine question
+- Share one honest lesson, mistake you made, or thing that surprised you while learning
+- End with a question asking others how they learned it or what advice they have
 - Maximum 3 relevant hashtags at the very end, nothing more
-- Do NOT use generic phrases like "In today's world" or "It goes without saying"
+- Do NOT use phrases like "In today's world", "It goes without saying", or anything that sounds senior/expert
+- Do NOT claim years of experience or frame yourself as an authority
 - needs_image must be exactly {needs_image_val}
 
 Return ONLY valid JSON with no markdown fences:
@@ -160,7 +164,7 @@ def fetch_unsplash_image(query):
     try:
         resp = requests.get(
             f"{UNSPLASH_API}/search/photos",
-            params={"query": query, "per_page": 1, "orientation": "landscape"},
+            params={"query": query, "per_page": 10, "orientation": "landscape"},
             headers={"Authorization": f"Client-ID {os.environ['UNSPLASH_ACCESS_KEY']}"},
             timeout=10,
         )
@@ -169,7 +173,7 @@ def fetch_unsplash_image(query):
         if not results:
             logger.warning("Unsplash: no results for query '%s'", query)
             return None
-        img_url = results[0]["urls"]["regular"]
+        img_url = random.choice(results)["urls"]["regular"]
         img_resp = requests.get(img_url, timeout=20)
         img_resp.raise_for_status()
         logger.info("Unsplash: downloaded %d bytes for '%s'", len(img_resp.content), query)
