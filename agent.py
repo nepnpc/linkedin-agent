@@ -93,17 +93,50 @@ def fetch_github_events(username):
         return []
 
 
+TRENDING_QUERY_POOLS = {
+    "tech": [
+        "AI tools students learning 2025",
+        "Python beginner projects trending 2025",
+        "GitHub trending repositories this week",
+        "free coding bootcamp resources 2025",
+        "tech layoffs hiring junior developers 2025",
+        "open source projects for beginners 2025",
+    ],
+    "general": [
+        "trending news today 2025",
+        "what is everyone talking about today",
+        "viral story internet this week",
+        "biggest news story today",
+        "trending topic social media today",
+    ],
+    "career": [
+        "entry level tech jobs 2025",
+        "fresher developer salary trends 2025",
+        "remote work opportunities students 2025",
+        "LinkedIn tips for new graduates 2025",
+        "how to get first tech job 2025",
+    ],
+    "learning": [
+        "best free programming courses 2025",
+        "learn to code trends beginners",
+        "self taught developer success stories 2025",
+        "AI helping students learn coding 2025",
+    ],
+}
+
+
 def fetch_trending_news():
-    queries = [
-        "AI agents autonomous 2025",
-        "agentic workflow automation trends",
-        "cybersecurity Python engineering 2025",
+    # Pick 1 query from each category to keep posts varied across topics
+    selected_queries = [
+        random.choice(pool) for pool in TRENDING_QUERY_POOLS.values()
     ]
+    random.shuffle(selected_queries)
+
     snippets = []
     try:
         with DDGS() as ddgs:
-            for q in queries[:2]:
-                for r in ddgs.text(q, max_results=3):
+            for q in selected_queries[:3]:
+                for r in ddgs.text(q, max_results=2):
                     title = r.get("title", "")
                     body = r.get("body", "")[:120]
                     if title:
@@ -111,7 +144,7 @@ def fetch_trending_news():
         logger.info("DuckDuckGo: %d snippets found", len(snippets))
     except Exception as e:
         logger.warning("DuckDuckGo search failed: %s", e)
-    return snippets[:6]
+    return snippets[:8]
 
 
 def generate_post_content(commits, news_snippets):
@@ -133,15 +166,17 @@ Write ONE LinkedIn post for today based on the context below.
 My recent GitHub commits (last 24h):
 {commit_text}
 
-Trending topics in AI / Cybersecurity / Python:
+What's trending today (tech, career, general news, learning):
 {news_text}
 
 Writing rules:
 - 150 to 300 words total
-- Sound like a genuine fresher — excited, honest about what you're learning, sometimes confused but pushing through
-- Vary the opening: a relatable struggle, a small win, a "wait this actually makes sense now" moment, or a genuine question
-- Share one honest lesson, mistake you made, or thing that surprised you while learning
-- End with a question asking others how they learned it or what advice they have
+- Sound like a genuine fresher — excited, honest, sometimes confused but pushing through
+- Pick the MOST interesting or relatable topic from the trending context above — it does NOT have to be a tech topic
+- You can write about career anxiety, job market, a viral story that connects to your learning journey, general life as a student/fresher, or any trending topic you find interesting
+- Vary the opening: a relatable struggle, a small win, a "wait this clicked" moment, a reaction to something trending, or a genuine question
+- Share one honest lesson, take, or reaction — make it personal and real
+- End with a question asking for advice, opinions, or how others dealt with the same thing
 - Maximum 3 relevant hashtags at the very end, nothing more
 - Do NOT use phrases like "In today's world", "It goes without saying", or anything that sounds senior/expert
 - Do NOT claim years of experience or frame yourself as an authority
