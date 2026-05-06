@@ -16,16 +16,20 @@ UNSPLASH_API = "https://api.unsplash.com"
 GITHUB_API = "https://api.github.com"
 
 FALLBACK_TOPICS = [
-    "Just deployed my first Python script to automate something and I can't believe it worked",
-    "Trying to understand how APIs work — and honestly it's clicking now",
-    "Learning Git properly for the first time — why didn't anyone tell me about rebasing earlier",
-    "Built my first web scraper this week and the internet is wild",
-    "Started learning about AI and machine learning — where do I even begin?",
-    "Finally understood recursion after three days of banging my head",
-    "My first open source contribution got merged and I'm low-key freaking out",
-    "Why everyone keeps saying 'read the docs' — they're actually useful",
-    "Debugging for 4 hours only to find a missing comma — classic beginner moment",
-    "Just learned what an API is and now I see them everywhere",
+    "n8n vs Zapier — n8n wins when you need self-hosted + complex branching logic",
+    "LangGraph state persistence changes everything for long-running agents",
+    "MCP servers are the cleanest way to expose local tools to LLMs right now",
+    "Most automation failures are JSON parsing errors, not logic errors. Validate at the boundary.",
+    "Webhook-first design saves hours of polling headaches",
+    "Vector stores don't replace SQL — they complement it for unstructured data retrieval",
+    "Groq inference speed makes real-time agent loops actually viable in production",
+    "90% of 'AI agent' projects are just prompt chaining with if/else dressed up",
+    "Rate limiting is the first thing that breaks your automation at scale. Build for it early.",
+    "Structured output from LLMs is still unreliable enough that retry + schema validation is not optional",
+    "Self-hosting Ollama for dev and swapping to a hosted model for prod is underrated",
+    "n8n's HTTP node pagination support saves a lot of custom loop code",
+    "Pydantic + instructor library is the cleanest combo for reliable LLM JSON output",
+    "GitHub Actions is a perfectly fine automation scheduler for most use cases. You don't need Airflow.",
 ]
 
 
@@ -94,33 +98,35 @@ def fetch_github_events(username):
 
 
 TRENDING_QUERY_POOLS = {
-    "tech": [
-        "AI tools students learning 2025",
-        "Python beginner projects trending 2025",
-        "GitHub trending repositories this week",
-        "free coding bootcamp resources 2025",
-        "tech layoffs hiring junior developers 2025",
-        "open source projects for beginners 2025",
+    "ai_agents": [
+        "LangGraph agent orchestration patterns 2026",
+        "n8n automation new features release 2026",
+        "MCP server Claude tools integration 2026",
+        "AI agent frameworks comparison LangChain CrewAI AutoGen",
+        "OpenAI Assistants API vs custom agent architecture",
+        "multi-agent workflow production deployment 2026",
     ],
-    "general": [
-        "trending news today 2025",
-        "what is everyone talking about today",
-        "viral story internet this week",
-        "biggest news story today",
-        "trending topic social media today",
+    "tools": [
+        "n8n vs Make vs Zapier automation comparison 2026",
+        "self hosted AI automation tools open source",
+        "Python automation engineering best practices 2026",
+        "vector database production comparison pinecone weaviate",
+        "local LLM Ollama automation workflow engineers",
+        "Pydantic instructor structured output LLM 2026",
     ],
-    "career": [
-        "entry level tech jobs 2025",
-        "fresher developer salary trends 2025",
-        "remote work opportunities students 2025",
-        "LinkedIn tips for new graduates 2025",
-        "how to get first tech job 2025",
+    "engineering": [
+        "webhook integration reliability patterns engineers",
+        "LLM JSON structured output reliability production",
+        "prompt engineering production system tips 2026",
+        "RAG retrieval pipeline optimization techniques",
+        "AI automation testing strategies engineers",
+        "rate limiting API automation scale patterns",
     ],
-    "learning": [
-        "best free programming courses 2025",
-        "learn to code trends beginners",
-        "self taught developer success stories 2025",
-        "AI helping students learn coding 2025",
+    "industry": [
+        "AI automation engineer job market 2026",
+        "enterprise AI agent adoption trends engineers",
+        "no-code vs custom code automation debate developers",
+        "AI replacing automation workflow jobs reality 2026",
     ],
 }
 
@@ -159,31 +165,36 @@ def generate_post_content(commits, news_snippets):
 
     needs_image_val = "true" if random.random() < 0.5 else "false"
 
-    prompt = f"""You are a fresh graduate and early-career developer who just started learning programming and tech.
-You are enthusiastic, curious, and still figuring things out — not an expert.
-Write ONE LinkedIn post for today based on the context below.
+    prompt = f"""You are a mid-level AI automation engineer. You build agents, n8n workflows, LangChain/LangGraph pipelines, and Python automations professionally.
+
+Write ONE LinkedIn post. Target audience: mid-level AI/automation engineers who want signal, not noise.
 
 My recent GitHub commits (last 24h):
 {commit_text}
 
-What's trending today (tech, career, general news, learning):
+Trending context (AI tools, automation, engineering):
 {news_text}
 
-Writing rules:
-- 150 to 300 words total
-- Sound like a genuine fresher — excited, honest, sometimes confused but pushing through
-- Pick the MOST interesting or relatable topic from the trending context above — it does NOT have to be a tech topic
-- You can write about career anxiety, job market, a viral story that connects to your learning journey, general life as a student/fresher, or any trending topic you find interesting
-- Vary the opening: a relatable struggle, a small win, a "wait this clicked" moment, a reaction to something trending, or a genuine question
-- Share one honest lesson, take, or reaction — make it personal and real
-- End with a question asking for advice, opinions, or how others dealt with the same thing
-- Maximum 3 relevant hashtags at the very end, nothing more
-- Do NOT use phrases like "In today's world", "It goes without saying", or anything that sounds senior/expert
-- Do NOT claim years of experience or frame yourself as an authority
+Rules:
+- 80 to 200 words
+- Pick the most useful or interesting insight from the context above — prefer something specific and practical
+- Write like a practitioner sharing a real observation — direct, no corporate speak, no fluff
+- VARY the format (pick randomly each time):
+  * Plain fact/observation: "n8n's HTTP node now handles pagination natively. Saves a lot of custom loop code."
+  * Short tip: "If your LLM agent keeps failing JSON parsing, wrap the output call in a retry loop with schema validation."
+  * Comparison or hot take: "LangGraph vs CrewAI — LangGraph wins for anything stateful. CrewAI is better for quick demos."
+  * Lesson from a build: what broke, one line on why, one line on the fix
+- Do NOT open with: "I think", "In my experience", "As an engineer", "Excited to share"
+- Do NOT use: "In today's world", "It goes without saying", "leverage", "dive deep", "game-changer", "unlock"
+- No rhetorical opener questions
+- No storytelling arc — get to the point immediately
+- Ending: a direct peer question OR nothing at all — a plain statement ending is fine
+- Hashtags: 0 to 2 only. Zero is fine. Only add if genuinely relevant.
 - needs_image must be exactly {needs_image_val}
+- For image_query: give a SPECIFIC visual that looks professional and eye-catching — like "glowing neural network nodes dark background", "terminal green code dark screen", "robot arm circuit board close up", "automation flowchart glowing nodes" — NOT generic like "technology" or "computer"
 
-Return ONLY valid JSON with no markdown fences:
-{{"text": "full post text here", "needs_image": {needs_image_val}, "image_query": "1-2 word search term if needs_image is true else null"}}"""
+Return ONLY valid JSON, no markdown fences:
+{{"text": "post text", "needs_image": {needs_image_val}, "image_query": "specific visual query or null"}}"""
 
     response = client.chat.completions.create(
         model="llama-3.3-70b-versatile",
@@ -208,7 +219,8 @@ def fetch_unsplash_image(query):
         if not results:
             logger.warning("Unsplash: no results for query '%s'", query)
             return None
-        img_url = random.choice(results)["urls"]["regular"]
+        results.sort(key=lambda x: x.get("likes", 0), reverse=True)
+        img_url = results[0]["urls"]["regular"]
         img_resp = requests.get(img_url, timeout=20)
         img_resp.raise_for_status()
         logger.info("Unsplash: downloaded %d bytes for '%s'", len(img_resp.content), query)
