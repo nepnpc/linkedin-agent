@@ -70,5 +70,13 @@
       "post_id": "urn:li:share:7457899835636203520",
       "snippet": "When automating tests with AI tools like Momentic "
     }
+  ],
+  "2026-05-07": [
+    {
+      "time": "02:52:11",
+      "type": "image",
+      "post_id": "urn:li:share:7457985605000634368",
+      "snippet": "n8n 2.0's native LangChain integration is a total "
+    }
   ]
 }
