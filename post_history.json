@@ -77,6 +77,12 @@
       "type": "image",
       "post_id": "urn:li:share:7457985605000634368",
       "snippet": "n8n 2.0's native LangChain integration is a total "
+    },
+    {
+      "time": "06:35:28",
+      "type": "image",
+      "post_id": "urn:li:share:7458041795495636992",
+      "snippet": "If your LLM agent keeps failing JSON parsing, wrap"
     }
   ]
 }
