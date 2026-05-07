@@ -83,6 +83,12 @@
       "type": "image",
       "post_id": "urn:li:share:7458041795495636992",
       "snippet": "If your LLM agent keeps failing JSON parsing, wrap"
+    },
+    {
+      "time": "14:09:19",
+      "type": "text",
+      "post_id": "urn:li:share:7458156013976866816",
+      "snippet": "LangGraph pipelines with multi-agent workflows can"
     }
   ]
 }
