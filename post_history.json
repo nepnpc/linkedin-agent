@@ -136,5 +136,13 @@
       "post_id": "urn:li:share:7458922608668069888",
       "snippet": "n8n 2.0's native LangChain support is a major upgr"
     }
+  ],
+  "2026-05-10": [
+    {
+      "time": "06:33:02",
+      "type": "image",
+      "post_id": "urn:li:share:7459128347558748160",
+      "snippet": "LangGraph outperforms CrewAI for stateful agent wo"
+    }
   ]
 }
