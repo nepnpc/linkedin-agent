@@ -157,6 +157,12 @@
       "type": "image",
       "post_id": "urn:li:share:7459563274305581056",
       "snippet": "When building reliable webhook integrations, using"
+    },
+    {
+      "time": "17:54:43",
+      "type": "text",
+      "post_id": "urn:li:share:7459662289432993793",
+      "snippet": "Just realized that wrapping LLM output calls in a "
     }
   ]
 }
