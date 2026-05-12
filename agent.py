@@ -30,6 +30,146 @@ FALLBACK_TOPICS = [
     "n8n's HTTP node pagination support saves a lot of custom loop code",
     "Pydantic + instructor library is the cleanest combo for reliable LLM JSON output",
     "GitHub Actions is a perfectly fine automation scheduler for most use cases. You don't need Airflow.",
+    "Half of automation engineering is error handling, not automation logic. The edges are the whole job.",
+    "The engineers good at AI automation know how to debug systems they didn't build, not just which models exist.",
+    "Everyone builds AI copilots for internal tools. Most get abandoned in 6 months because nobody defined 'helpful' before building.",
+    "LLM output validation with Pydantic + instructor gives typed objects back instead of dicts — same result, less boilerplate.",
+    "Vendor APIs silently changing response schemas has broken more pipelines than any logic bug.",
+    "Conditional edges in LangGraph without a proper end condition will loop forever. Found out the hard way.",
+    "MCP is just REST but the server decides what tools to expose. Cleaner than hacking tool definitions into every prompt.",
+    "n8n sub-workflows for isolated retries — the main retry node resets the whole branch, not just the failed node.",
+    "The difference between a demo agent and a prod agent is entirely in how it handles failures.",
+    "Most 'agentic AI' in production: one LLM call, some if/else, maybe a loop. Works fine. Stop calling it architecture.",
+]
+
+
+POST_ARCHETYPES = [
+    {
+        "name": "raw_observation",
+        "instruction": (
+            "Write 1-2 tight paragraphs. No lists. No headers. A direct observation from actual work. "
+            "Read like something typed on a phone while waiting for a build. Casual but specific."
+        ),
+        "example": (
+            "Spent three hours debugging a LangGraph agent that kept looping. "
+            "Issue wasn't the logic — I forgot to add an end condition to the conditional edge. "
+            "One line. Three hours. That's agents in 2026."
+        ),
+    },
+    {
+        "name": "hot_take",
+        "instruction": (
+            "Lead with the controversial or counterintuitive claim. Back it up in 2-3 sentences. "
+            "No hedging. Own the opinion. Don't soften it."
+        ),
+        "example": (
+            "Most 'AI agents' in production are just LLM calls with if/else wrapped around them. "
+            "That's not a diss — it works. "
+            "But stop calling it an agent architecture when it's a decision tree with a language model in one branch."
+        ),
+    },
+    {
+        "name": "quick_lesson",
+        "instruction": (
+            "Something specific you learned or discovered. Not a generic tip — "
+            "a concrete detail: a specific error, a named tool, a version, a number. Under 100 words."
+        ),
+        "example": (
+            "n8n's retry-on-fail node resets the entire branch, not just the failed node. "
+            "Found this when a webhook listener kept re-firing on every retry. "
+            "Use a sub-workflow if you need isolated retries."
+        ),
+    },
+    {
+        "name": "before_after",
+        "instruction": (
+            "What you used to do vs what you do now, or what broke vs how you fixed it. "
+            "Two short paragraphs or one paragraph with a clear pivot. No bullet lists."
+        ),
+        "example": (
+            "Used to validate LLM JSON output with try/except around json.loads. "
+            "Now I use Pydantic with instructor and let it retry automatically. "
+            "Same result, less boilerplate, and I get typed objects back instead of dicts."
+        ),
+    },
+    {
+        "name": "comparison",
+        "instruction": (
+            "Compare two tools, approaches, or concepts. Be specific about when each wins. "
+            "No 'it depends' cop-out — give an actual recommendation for actual scenarios."
+        ),
+        "example": (
+            "LangGraph vs CrewAI: LangGraph when you need fine control over state and conditional routing. "
+            "CrewAI when you want agents that feel like teammates and you're okay with less visibility. "
+            "For anything going to prod, LangGraph."
+        ),
+    },
+    {
+        "name": "industry_take",
+        "instruction": (
+            "Observation about where the industry is heading, what's overhyped, what's underrated. "
+            "Can be a bit ranty. Sounds like talking to a peer at a conference, not a blog post."
+        ),
+        "example": (
+            "Everyone's building AI copilots for their internal tools right now. "
+            "Most will get abandoned in 6 months. "
+            "Not because the tech is bad — because nobody defined what 'helpful' actually means for their workflow before building."
+        ),
+    },
+    {
+        "name": "unglamorous_reality",
+        "instruction": (
+            "The boring, frustrating, or invisible part of this work. "
+            "The thing that doesn't show up in tutorials or success posts. Raw and specific. "
+            "No inspirational spin."
+        ),
+        "example": (
+            "Half my automation engineering time is error handling and logging, not the automation logic. "
+            "Rate limits, API timeouts, malformed webhooks, schema changes nobody documented. "
+            "The pipelines are easy. The edges are the whole job."
+        ),
+    },
+    {
+        "name": "numbered_list",
+        "instruction": (
+            "3 to 5 numbered points. Each point is ONE concrete sentence — no sub-explanations. "
+            "No intro sentence. No CTA at the end. Full post reads in under 20 seconds."
+        ),
+        "example": (
+            "Things that silently break automation pipelines:\n"
+            "1. Vendor API changes response schema without versioning\n"
+            "2. Webhook payload arrives faster than the handler processes\n"
+            "3. LLM returns valid JSON but wrong field names\n"
+            "4. Token expires mid-run with no refresh logic\n"
+            "5. Someone edits the workflow while it's running"
+        ),
+    },
+    {
+        "name": "career_observation",
+        "instruction": (
+            "Something noticed about being an AI/automation engineer — the work, the career, "
+            "what people get wrong about the job. Personal but not navel-gazing. No life lessons."
+        ),
+        "example": (
+            "The engineers actually good at AI automation aren't the ones who know the most models. "
+            "They're the ones who can debug systems they didn't build "
+            "and read an API error and know exactly where to look."
+        ),
+    },
+    {
+        "name": "single_insight",
+        "instruction": (
+            "One paragraph, one idea, fully explained. No preamble, no conclusion, no CTA. "
+            "Dense with specific detail. If it could be a tweet, make it longer and more useful."
+        ),
+        "example": (
+            "Structured output from LLMs breaks in production not because the model is bad "
+            "but because response_format enforcement varies by model and provider. "
+            "Groq + llama-3.3 is strict. GPT-4o occasionally drifts on nested schemas. "
+            "Build your retry + validation layer against the strictest behavior you expect, "
+            "not the average."
+        ),
+    },
 ]
 
 
@@ -160,41 +300,66 @@ def generate_post_content(commits, news_snippets):
     if news_snippets:
         news_text = "\n".join(f"- {s}" for s in news_snippets)
     else:
-        sample = random.sample(FALLBACK_TOPICS, min(3, len(FALLBACK_TOPICS)))
+        sample = random.sample(FALLBACK_TOPICS, min(4, len(FALLBACK_TOPICS)))
         news_text = "\n".join(f"- {t}" for t in sample)
 
     needs_image_val = "true" if random.random() < 0.5 else "false"
 
-    prompt = f"""You are a mid-level AI automation engineer. You build agents, n8n workflows, LangChain/LangGraph pipelines, and Python automations professionally.
+    archetype = random.choice(POST_ARCHETYPES)
 
-Write ONE LinkedIn post. Target audience: mid-level AI/automation engineers who want signal, not noise.
+    prompt = f"""You are a working AI automation engineer. You build agents, n8n workflows, LangGraph pipelines, and Python automations. You have real opinions. You've been burned by bad abstractions and stupid bugs. You share what you actually know, not what sounds impressive.
 
-My recent GitHub commits (last 24h):
+Write ONE LinkedIn post for other engineers. Signal only — no noise, no inspiration porn.
+
+## Your raw material (use ONE angle from this, not all of it):
+
+Recent GitHub commits:
 {commit_text}
 
-Trending context (AI tools, automation, engineering):
+What's happening in the space:
 {news_text}
 
-Rules:
-- 80 to 200 words
-- Pick the most useful or interesting insight from the context above — prefer something specific and practical
-- Write like a practitioner sharing a real observation — direct, no corporate speak, no fluff
-- VARY the format (pick randomly each time):
-  * Plain fact/observation: "n8n's HTTP node now handles pagination natively. Saves a lot of custom loop code."
-  * Short tip: "If your LLM agent keeps failing JSON parsing, wrap the output call in a retry loop with schema validation."
-  * Comparison or hot take: "LangGraph vs CrewAI — LangGraph wins for anything stateful. CrewAI is better for quick demos."
-  * Lesson from a build: what broke, one line on why, one line on the fix
-- Do NOT open with: "I think", "In my experience", "As an engineer", "Excited to share"
-- Do NOT use: "In today's world", "It goes without saying", "leverage", "dive deep", "game-changer", "unlock"
-- No rhetorical opener questions
-- No storytelling arc — get to the point immediately
-- Ending: a direct peer question OR nothing at all — a plain statement ending is fine
-- Hashtags: 0 to 2 only. Zero is fine. Only add if genuinely relevant.
+## Format for this post: {archetype["name"]}
+
+Instructions: {archetype["instruction"]}
+
+Example of this format (DO NOT copy — use as structural reference only):
+"{archetype["example"]}"
+
+## Hard rules — violation = failure:
+
+FORBIDDEN OPENERS (never start with these or any variation):
+- "I've been", "I just", "I recently", "As I", "In my experience", "I think"
+- "What if", "Have you ever", "Did you know", "Imagine if"
+- "I stumbled upon", "I came across", "I've been scrolling"
+- "In today's world", "In the age of", "As we move toward"
+- "Excited to share", "Thrilled to announce", "Happy to share"
+- Any question as the opening line
+
+FORBIDDEN PHRASES (anywhere in post):
+- "game-changer", "game changer", "unlock", "leverage", "dive deep", "deep dive"
+- "it goes without saying", "needless to say", "at the end of the day"
+- "rapidly evolving", "ever-evolving", "fast-paced", "revolutionary"
+- "paradigm shift", "move the needle", "touch base", "circle back"
+- "as an AI language model", "as a practitioner", "as an engineer"
+- "the future of", "the power of", "the importance of"
+
+STRUCTURE RULES:
+- No motivational or inspirational framing whatsoever
+- No "Here's what I learned:" or "Key takeaway:" or "TLDR:" headers
+- No ending with "What do you think?" or "Drop a comment below" or "Would love to hear your thoughts"
+- No emojis used as bullet points
+- Ending: plain statement, peer question on the specific topic, or nothing — all fine
+- Hashtags: 0 to 2 max. Zero is preferred. Only if genuinely useful for discovery.
+
+LENGTH: 60–180 words. Shorter is fine if the idea is complete.
+
+IMAGE:
 - needs_image must be exactly {needs_image_val}
-- For image_query: give a SPECIFIC visual that looks professional and eye-catching — like "glowing neural network nodes dark background", "terminal green code dark screen", "robot arm circuit board close up", "automation flowchart glowing nodes" — NOT generic like "technology" or "computer"
+- image_query: specific professional visual — e.g. "glowing neural network nodes dark background", "terminal green code dark screen", "circuit board macro close up", "server rack data center blue light" — NOT "technology" or "AI" or "computer"
 
 Return ONLY valid JSON, no markdown fences:
-{{"text": "post text", "needs_image": {needs_image_val}, "image_query": "specific visual query or null"}}"""
+{{"text": "post text here", "needs_image": {needs_image_val}, "image_query": "specific query or null"}}"""
 
     response = client.chat.completions.create(
         model="llama-3.3-70b-versatile",
@@ -202,7 +367,7 @@ Return ONLY valid JSON, no markdown fences:
         response_format={"type": "json_object"},
     )
     result = json.loads(response.choices[0].message.content)
-    logger.info("Groq: post generated, needs_image=%s", result.get("needs_image"))
+    logger.info("Groq: post generated, archetype=%s needs_image=%s", archetype["name"], result.get("needs_image"))
     return result
 
 
