@@ -263,6 +263,12 @@
       "type": "image",
       "post_id": "urn:li:share:7461299897108078592",
       "snippet": "When using Instructor for structured LLM outputs, "
+    },
+    {
+      "time": "09:41:02",
+      "type": "text",
+      "post_id": "urn:li:share:7461349986040004608",
+      "snippet": "When integrating Claude Code with MCP servers, it'"
     }
   ]
 }
