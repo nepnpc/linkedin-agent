@@ -375,6 +375,12 @@
       "type": "text",
       "post_id": "urn:li:share:7463188141789679617",
       "snippet": "Most of my time with vector databases like Pinecon"
+    },
+    {
+      "time": "15:26:44",
+      "type": "text",
+      "post_id": "urn:li:share:7463248924506693633",
+      "snippet": "1. Webhook systems without exponential backoff and"
     }
   ]
 }
