@@ -435,6 +435,12 @@
       "type": "image",
       "post_id": "urn:li:share:7464157444919693313",
       "snippet": "1. Local LLMs with tools like Ollama can build AI-"
+    },
+    {
+      "time": "09:54:12",
+      "type": "image",
+      "post_id": "urn:li:share:7464252405073817600",
+      "snippet": "LangGraph vs CrewAI: LangGraph when fine control o"
     }
   ]
 }
