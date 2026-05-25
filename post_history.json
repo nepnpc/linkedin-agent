@@ -449,6 +449,12 @@
       "type": "text",
       "post_id": "urn:li:share:7464523419636895745",
       "snippet": "Enterprise AI agent adoption is picking up, but mo"
+    },
+    {
+      "time": "14:53:37",
+      "type": "text",
+      "post_id": "urn:li:share:7464690144667721729",
+      "snippet": "Spent the last week wrestling with a LangGraph pip"
     }
   ]
 }
