@@ -489,6 +489,12 @@
       "type": "text",
       "post_id": "urn:li:share:7465248141026627585",
       "snippet": "Spent the last week debugging an n8n workflow that"
+    },
+    {
+      "time": "15:41:54",
+      "type": "image",
+      "post_id": "urn:li:share:7465427069573918720",
+      "snippet": "n8n vs Zapier: n8n when you need self-hosting and "
     }
   ]
 }
