@@ -517,6 +517,12 @@
       "type": "text",
       "post_id": "urn:li:share:7465969412643164160",
       "snippet": "1. Inconsistent retrieval mechanisms in LangGraph "
+    },
+    {
+      "time": "11:32:33",
+      "type": "text",
+      "post_id": "urn:li:share:7466089095690174464",
+      "snippet": "Used to manually validate LLM output with custom s"
     }
   ]
 }
