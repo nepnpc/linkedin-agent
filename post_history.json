@@ -530,5 +530,13 @@
       "post_id": "urn:li:share:7466194918554898432",
       "snippet": "1. n8n workflows are more cost-effective for large"
     }
+  ],
+  "2026-05-30": [
+    {
+      "time": "03:25:38",
+      "type": "text",
+      "post_id": "urn:li:share:7466328944578031616",
+      "snippet": "Realized that using Pydantic for structured LLM ou"
+    }
   ]
 }
