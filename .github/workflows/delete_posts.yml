@@ -1,0 +1,32 @@
+name: Delete All LinkedIn Posts
+
+on:
+  workflow_dispatch:
+
+jobs:
+  delete-posts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install requests
+
+      - name: Run deletion script
+        env:
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+        run: python delete_posts.py
+
+      - name: Clear post history
+        run: echo "{}" > post_history.json
+
+      - name: Commit cleared history
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add post_history.json
+          git commit -m "Clear post history after bulk delete" || echo "Nothing to commit"
+          git push
