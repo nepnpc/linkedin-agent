@@ -550,5 +550,13 @@
       "post_id": "urn:li:share:7466483263214149632",
       "snippet": "When using Claude Code with MCP servers, the --com"
     }
+  ],
+  "2026-05-31": [
+    {
+      "time": "03:52:53",
+      "type": "text",
+      "post_id": "urn:li:share:7466698192055857153",
+      "snippet": "Most automation workflows on n8n and Zapier are no"
+    }
   ]
 }
